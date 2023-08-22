@@ -1,4 +1,35 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/show'
+  end
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+  end
+  namespace :admin do
+    get 'homes/top'
+  end
+  namespace :public do
+    get 'orders/new'
+    get 'orders/complete'
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :public do
+    get 'cart_items/index'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/check'
+  end
   namespace :public do
     get 'items/index'
     get 'items/show'
@@ -14,15 +45,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  root to: "homes#top"
+  root to: "public/homes#top"
 
-  resources :public/items, only: [:index, :show]
+  resources :public_items, only: [:index, :show]
 
-  resources :public/customers, only: [:show, :edit, :update, :check]
-
-  resources :public/cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-
-  resources :public/orders, only: [:new, :index, :show, :create, :confirm, :complete]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
