@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   
-  #1:NのN側（customer_id）
+  #1:NのNにあたる側（costomer_id)
+  belongs_to :customer
   
   #1:Nの1側（order_id）
   has_many :order_details, dependent: :destroy
