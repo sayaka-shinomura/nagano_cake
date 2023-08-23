@@ -24,63 +24,78 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+
             <!--#管理者がサインインしているときのヘッダー-->
             <% if admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-white' do %>
+              <%= link_to admin_items_path, class: 'nav-link text-white' do %>
+              <span>商品一覧</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "会員一覧", admin_costomers_path, class: 'nav-link text-white' do %>
+              <%= link_to admin_costomers_path, class: 'nav-link text-white' do %>
+              <span>会員一覧</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴一覧", admin_order_detail_path, class: 'nav-link text-white' do %>
+              <%= link_to admin_order_detail_path, class: 'nav-link text-white' do %>
+              <span>注文履歴一覧</span>
               <% end %>
-            </li>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <span>ログアウト</span>
               <% end %>
             </li>
+
+
             <!--#ユーザーがサインインしているときのヘッダー-->
-            <% elsif user_signed_in? %>
+            <% elsif customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to "マイページ", public_customers_mypage_path, class: 'nav-link text-white' do %>
+              <%= link_to public_customers_path, class: 'nav-link text-white' do %>
+              <span>マイページ</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "商品一覧", public_items_path, class: 'nav-link text-white' do %>
+              <%= link_to public_orders_path, class: 'nav-link text-white' do %>
+              <span>商品一覧</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "カート", public_cart_items_path, class: 'nav-link text-white' do %>
+              <%= link_to public_cart_items_path, class: 'nav-link text-white' do %>
+              <span>カート</span>
               <% end %>
-            </li>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_public_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <%= link_to destroy_public_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <span>ログアウト</span>
               <% end %>
             </li>
+
             <!--#サインインしていない時のヘッダー-->
             <% else %>
             <li class="nav-item">
-              <%= link_to "About", about_path, class: 'nav-link text-white' do %>
+              <%= link_to root_path, class: 'nav-link text-white' do %>
+              <span>About</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "商品一覧", public_items_path, class: 'nav-link text-white' do %>
+              <%= link_to public_orders_path, class: 'nav-link text-white' do %>
+              <span>商品一覧</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "新規登録", new_public_registration_path, class: 'nav-link text-white' do %>
+              <%= link_to new_customer_registration_path, class: 'nav-link text-white' do %>
+              <span>新規登録</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン",new_public_session_path, class: 'nav-link text-white' do %>
+              <%= link_to new_customer_session_path, class: 'nav-link text-white' do %>
+              <span>ログイン</span>
               <% end %>
             </li>
             <% end %>
+            </ul>
         </div>
       </nav>
     </header>
