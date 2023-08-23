@@ -28,46 +28,7 @@
             <!--#管理者がサインインしているときのヘッダー-->
             <% if admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to admin_items_path, class: 'nav-link text-white' do %>
-              <span>商品一覧</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to admin_costomers_path, class: 'nav-link text-white' do %>
-              <span>会員一覧</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to admin_order_detail_path, class: 'nav-link text-white' do %>
-              <span>注文履歴一覧</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-white' do %>
-              <span>ログアウト</span>
-              <% end %>
-            </li>
-
-
-            <!--#ユーザーがサインインしているときのヘッダー-->
-            <% elsif customer_signed_in? %>
-            <li class="nav-item">
-              <%= link_to public_customers_path, class: 'nav-link text-white' do %>
-              <span>マイページ</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to public_orders_path, class: 'nav-link text-white' do %>
-              <span>商品一覧</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to public_cart_items_path, class: 'nav-link text-white' do %>
-              <span>カート</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to destroy_public_session_path, method: :delete, class: 'nav-link text-white' do %>
               <span>ログアウト</span>
               <% end %>
             </li>
@@ -75,22 +36,7 @@
             <!--#サインインしていない時のヘッダー-->
             <% else %>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-white' do %>
-              <span>About</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to public_orders_path, class: 'nav-link text-white' do %>
-              <span>商品一覧</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_customer_registration_path, class: 'nav-link text-white' do %>
-              <span>新規登録</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_customer_session_path, class: 'nav-link text-white' do %>
+              <%= link_to new_admin_session_path, class: 'nav-link text-white' do %>
               <span>ログイン</span>
               <% end %>
             </li>
