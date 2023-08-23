@@ -1,35 +1,54 @@
 Rails.application.routes.draw do
 
   scope module: :admin do
-    resources :orders, only: [:show]
+    get 'orders/show'
+    get "/orders/show/:id" => "orders#show"
   end
 
   scope module: :admin do
-    resources :customers, only: [:index, :show, :edit]
+    get 'customers/index'
+    get "/admin/customers/index" => "customers#index"
+    get 'customers/show'
+    get "/admin/customers/show/:id" => "customers#show"
+    get 'customers/edit'
+    get "/admin/customers/id/edit" => "customers#edit"
   end
 
   scope module: :admin do
-    resources :items, only: [:index, :new, :show, :edit]
+    get 'items/index'
+    get "/admin/items" => "items#index"
+    get 'items/new'
+    get "/admin/items/new" => "items#new"
+    get 'items/show'
+    get "/admin/items/:id" => "items#show"
+    get 'items/edit'
+    get "/admin/items/:id/edit" => "items#edit"
   end
 
   scope module: :admin do
     get 'homes/top'
+    get "/admin" => "homes#top"
   end
 
   scope module: :public do
-    resources :public_orders, only: [:new, :complete, :index, :show]
+    get 'orders/new'
+    get 'orders/complete'
+    get 'orders/index'
+    get 'orders/show'
   end
 
-  scope module: :public do
-    resources :cart_items, only: [:index]
+  namespace :public do
+    get 'cart_items/index'
   end
-
-  scope module: :public do
-    resources :costomers, only: [:show, :edit, :check]
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/check'
   end
-
-  scope module: :public do
-    resources :items, only: [:index, :show]
+  namespace :public do
+    get 'items/index'
+    get "/items" => "items#index"
+    get 'items/show'
   end
 
   #顧客用  URL /costomers/sign_in...
@@ -46,15 +65,4 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
 
-
-
-
-
-
-
-
-
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
