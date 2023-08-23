@@ -1,4 +1,4 @@
-class Item < ApplicationRecord
+class Item
   
   #1:Nの1にあたる側（items_id)
   has_many :cart_items, dependent: :destroy
