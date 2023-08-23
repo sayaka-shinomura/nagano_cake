@@ -32,6 +32,20 @@
               <span>ログアウト</span>
               <% end %>
             </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to destroy_public_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <span>ログアウト</span>
+              <% end %>
+            </li>
+
+
+            <% elsif public_signed_in? %>
+            <li class="nav-item">
+              <%= link_to destroy_public_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <span>ログアウト</span>
+              <% end %>
+            </li>
 
             <!--#サインインしていない時のヘッダー-->
             <% else %>
