@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     elsif resource_or_scope == :admin
         items_path
     else
-        new_public_session_path
+        root_path
     end
   end
 
