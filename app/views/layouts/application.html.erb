@@ -47,16 +47,29 @@
               <span>ログアウト</span>
               <% end %>
             </li>
+
+            <!--#ユーザーがサインインしているときのヘッダー-->
             <% elsif customer_signed_in? %>
+            <li class="nav-item">
+              <%= link_to customers_mypage_path, class: 'nav-link text-white' do %>
+              <span>マイページ</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to items_path, class: 'nav-link text-white' do %>
+              <span>商品一覧</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to cart_items_path, class: 'nav-link text-white' do %>
+              <span>カート</span>
+              <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-white' do %>
               <span>ログアウト</span>
               <% end %>
             </li>
-
-
-
-
 
             <!--#サインインしていない時のヘッダー-->
             <% else %>

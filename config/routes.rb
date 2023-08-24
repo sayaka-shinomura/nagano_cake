@@ -15,28 +15,20 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    get 'orders/new'
     get "/orders/new" => "orders#new"
-    get 'orders/complete'
     get "/orders/complete" => "orders#complete"
-    get 'orders/index'
     get "/orders" => "orders#index"
-    get 'orders/show'
-    get "/orders/:id" => "orders#edit"
+    get "/orders/:id" => "orders#show"
   end
 
   scope module: :public do
-    get 'cart_items/index'
     get "/cart_items" => "cart_items#index"
   end
 
   scope module: :public do
-    get 'customers/show'
-    get "/customers/:id" => "customers#show"
-    get 'customers/edit'
+    get "/customers/mypage" => "customers#show"
     get "/customers/:id/edit" => "customers#edit"
-    get 'customers/check'
-    get "/customers/check" => "customers#edit"
+    get "/customers/check" => "customers#check"
   end
 
   scope module: :public do
