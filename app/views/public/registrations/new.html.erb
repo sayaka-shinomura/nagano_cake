@@ -1,17 +1,13 @@
-<thead>
-         <tr>
-          <th></th>
-          <th align="left">Title</th>
-          <th align="left">Opinion</th>
-          <th colspan="3"></th>
-         </tr>
-        </thead>
+<p id="notice"><%= notice %></p>
 
-<h2>新規会員登録</h2>
+<div class="container">
+  <div calss="row">
+    <div class="col-sm-12 col-md-10 col-lg-10 px-5 px-sm-0 mx-auto">
+      <h2>新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
+<form class="form-horizontal" role="form">
   <div class="field">
     <%= f.label :'名前' %>
     <%= f.label :'（姓）' %>
@@ -55,12 +51,18 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<div class="actions">
-  <p>既に登録済みの方</p>
-<%= render "public/shared/links" %>
+    <div class="actions">
+       <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
+      </div>
+      <% end %>
+
+      <div class="actions">
+       <p>既に登録お済みの方</p>
+       <%= link_to customer_session_path do %>
+       <span>こちら</span><% end %><p>から<strong>ログイン</strong>してください</p>
+      </div>
+</div>
+    </div>
+  </div>
 </div>
