@@ -3,6 +3,14 @@
    <div class="col-md-8 offset-md-1">
    <h3>マイページ</h3>
 
+   <!--#編集画面へのボタン-->
+   <div class="actions">
+    <h3>登録情報</h3>
+    <%= link_to customers_infomation_edit_path(current_customer.id), class:"btn btn-sm btn-success" do %>
+    <span>編集する</span>
+    <% end %>
+   </div>
+
    <table class="table table-hover table-invarse">
      <tbody>
        <tr>
@@ -31,6 +39,15 @@
        </tr>
     </tbody>
   </table>
+
+  <!--#編集画面へのボタン-->
+   <div class="actions">
+    <h3>注文履歴</h3>
+    <%= link_to orders_path, class:"btn btn-sm btn-primary" do %>
+    <span>一覧を見る</span>
+    <% end %>
+   </div>
+
   </div>
  </div>
 </div>
