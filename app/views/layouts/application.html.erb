@@ -53,7 +53,7 @@
             <!--#ユーザーがサインインしているときのヘッダー-->
             <% elsif customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to customers_mypage_path, class: 'nav-link text-white' do %>
+              <%= link_to customers_mypage_path(current_customer.id), class: 'nav-link text-white' do %>
               <span>マイページ</span>
               <% end %>
             </li>
