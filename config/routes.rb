@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get "/customers/infomation/edit" => "customers#edit"
     patch "/customers/information" => "customers#update"
     get "/customers/check" => "customers#check"
+    patch "/customers/withdraw" => "customers#withdraw"
   end
 
   scope module: :public do
