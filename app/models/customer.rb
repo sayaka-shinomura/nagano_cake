@@ -10,4 +10,9 @@ class Customer < ApplicationRecord
   #1:Nの1側（order_id）
   has_many :orders, dependent: :destroy
 
+  # is_deletedがfalseならtrueを返す
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end
