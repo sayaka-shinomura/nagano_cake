@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   scope module: :admin do
     get "/admin/items" => "items#index"
     get "/admin/items/new" => "items#new"
+    post "/admin/items" => "items#create"
     get "/admin/items/:id" => "items#show"
     get "/admin/items/:id/edit" => "items#edit"
   end
