@@ -42,7 +42,9 @@ Rails.application.routes.draw do
   end
 
 
-
+  scope module: :admin do
+    get "/admin" => "homes#top"
+  end
 
   scope module: :admin do
     get "/admin/orders/:id" => "orders#show"
@@ -60,11 +62,6 @@ Rails.application.routes.draw do
     get "/admin/items/:id" => "items#show"
     get "/admin/items/:id/edit" => "items#edit"
   end
-
-  scope module: :admin do
-    get "/admin" => "homes#top"
-  end
-
 
 
 end
