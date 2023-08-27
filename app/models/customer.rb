@@ -9,6 +9,8 @@ class Customer < ApplicationRecord
 
   #1:Nの1側（order_id）
   has_many :orders, dependent: :destroy
+  
+  has_one_attached :image
 
   # is_deletedがfalseならtrueを返す
   def active_for_authentication?

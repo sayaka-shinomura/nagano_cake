@@ -6,4 +6,6 @@ class Item < ApplicationRecord
   #1:Nの1にあたる側（items_id)
   has_many :order_items, dependent: :destroy
   
+  has_one_attached :image
+  
 end

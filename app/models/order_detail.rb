@@ -6,5 +6,7 @@ class OrderDetail < ApplicationRecord
   #1:NのN側（item_id)
   belongs_to :item
   
+  has_one_attached :image
+  
   
 end
