@@ -13,7 +13,7 @@
    </ul>
    <% end %>
 
-   <%= form_with model: Item.new do |f| %>
+   <%= form_with model: Item.new, url:admin_items_path do |f| %>
    <div class="form-group">
     <label for="inputImage">商品画像</label>
     <%= f.file_field :item_image, placeholder: "Image", accept: "image/*", class: "w-100" %>
@@ -36,9 +36,9 @@
 
     <div class="form-group">
      <%= f.submit '新規登録', class:"btn btn-success" %>
-    <div class="form-group">
-    <% end %>
+     <% end %>
     </div>
+
   </div>
  </div>
 </div>
