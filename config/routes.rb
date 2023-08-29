@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     post "/admin/items" => "items#create"
     get "/admin/items/:id" => "items#show"
     get "/admin/items/:id/edit" => "items#edit"
+    patch "/admin/items/:id" => "items#update"
   end
 
 
