@@ -1,2 +1,15 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+
+<div class="col-md-8 offset-md-1">
+    <h2>商品詳細</h2>
+    <table class="table">
+        <tbody>
+          <tr><% @items.each do |item| %></tr>
+          <td><%= image_tag item.image %></td>
+            <td><%= item.name %></td>
+            <td><%= item.introduction %></td>
+            <td><%= item.price %></td>
+            <% end %>
+        </tbody>
+    </table>
+ </div>
+

@@ -13,7 +13,7 @@
    </ul>
    <% end %>
 
-   <%= form_with model: Item.new, url:admin_items_path do |f| %>
+   <%= form_with model: Item.new, url:admin_item_new_path(@item.id), method: :post do |f| %>
    <div class="form-group">
     <label for="inputImage">商品画像</label>
     <%= f.file_field :item_image, placeholder: "Image", accept: "image/*", class: "w-100" %>
