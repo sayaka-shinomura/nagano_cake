@@ -1,13 +1,37 @@
-
+<div class="container">
+ <div class="row">
 <div class="col-md-8 offset-md-1">
     <h2>商品詳細</h2>
     <table class="table">
         <tbody>
           <td><%= image_tag @item.image %></td>
-            <td><%= @item.name %></td>
-            <td><%= @item.introduction %></td>
-            <td><%= @item.price %></td>
+            <td>
+              <p>商品名</p>
+              <%= @item.name %>
+            </td>
+            <td>
+              <p>商品説明</p>
+              <%= @item.introduction %>
+            </td>
+            <td>
+              <p>税込価格</p>
+              <%= @item.price %>
+            </td>
         </tbody>
-    </table>
- </div>
+        </table>
+</div>
+</div>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="com-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <div class="form-group">
+         <%= link_to "編集する", admin_item_edit_path(@item), class:"btn btn-success" %>
+        </div>
+        </div>
+</div>
+</div>
+
+
+
 
