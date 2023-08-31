@@ -1,15 +1,32 @@
-
+<div class="container">
+<div class="row">
 <div class="col-md-8 offset-md-1">
-    <h2>商品詳細</h2>
+    <h2>商品一覧</h2>
+    <div class="form-group">
+         <%= link_to "＋", admin_items_new_path, class:"btn btn-success" %>
+        </div>
     <table class="table">
+      <thead>
+         <tr>
+          <th align="left">商品ID</th>
+          <th align="left">商品名</th>
+          <th align="left">税抜価格</th>
+         </tr>
+        </thead>
         <tbody>
           <tr><% @items.each do |item| %></tr>
-          <td><%= image_tag item.image %></td>
-            <td><%= item.name %></td>
-            <td><%= item.introduction %></td>
+            <td><%= item.id %></td>
+            <td>
+             <%= link_to admin_item_show_path(item) do %>
+             <p><%= item.name %></p>
+             <% end %>
+            </td>
             <td><%= item.price %></td>
             <% end %>
         </tbody>
     </table>
+    <%= paginate @items %>
  </div>
+</div>
+</div>
 

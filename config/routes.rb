@@ -35,9 +35,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get 'items/index'
     get "/items" => "items#index"
-    get 'items/show'
     get "/items/:id" => "items#show"
   end
 
