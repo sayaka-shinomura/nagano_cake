@@ -8,11 +8,32 @@
       購入には会員登録が必要になります。
     </p>
 
-    <h3>新着商品</h3>
 
-    <div class="image">
-    <%= image_tag 'nagano_cake_image.jpg', size: "200x200", class: "d-block mx-auto" %>
-    </div>
+
+    <div class="container">
+<div class="row">
+<div class="col-lg-4 offset-md-1">
+    <h3>新着商品</h3>
+    <table class="table">
+        <tbody>
+          <tr><% @items.each do |item| %>
+            <td>
+              <%= image_tag item.image %>
+              <br>
+              <%= link_to item_path(item) do %>
+              <p><%= item.name %></p>
+              <% end %>
+              <br>
+              <%= item.price %>
+            </td>
+            <% end %>
+            </tr>
+        </tbody>
+    </table>
+    <%= paginate @items %>
+ </div>
+</div>
+</div>
 
   </div>
  </div>

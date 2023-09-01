@@ -42,12 +42,6 @@ class Admin::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :introduction, :price)
-  endprivate
-
-  def item_params
-    params.require(:item).permit(:image, :name, :introduction, :price)
   end
-
-
 
 end
