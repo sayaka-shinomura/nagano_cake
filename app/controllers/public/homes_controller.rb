@@ -9,7 +9,7 @@ class Public::HomesController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :name, :introduction, :price)
+    params.require(:item).permit(:image, :name, :price)
   end
 
 end
