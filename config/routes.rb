@@ -49,8 +49,9 @@ Rails.application.routes.draw do
 
   scope module: :admin do
     get "/admin/customers" => "customers#index"
-    get "/admin/customers/show/:id" => "customers#show", as: 'admin_customers_show'
-    get "/admin/customers/id/edit" => "customers#edit", as: 'admin_customers_edit'
+    get "/admin/customers/:id" => "customers#show", as: 'admin_customer_show'
+    get "/admin/customers/:id/edit" => "customers#edit", as: 'admin_customer_edit'
+    patch "/admin/customers/:id" => "customers#update", as: 'admin_customer'
   end
 
   scope module: :admin do
