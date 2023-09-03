@@ -13,6 +13,7 @@
                 <div class="form-group">
                   <%= form_with model: @cart_item do |f| %>
                   <%= f.select :amount,  *[1..10], include_blank: "個数選択" %>
+                  <%= f.hidden_field :item_id, :value => @item.id %>
                   <%= f.submit 'カートに入れる', class:"btn btn-success" %>
                   <% end %>
                 </div>
