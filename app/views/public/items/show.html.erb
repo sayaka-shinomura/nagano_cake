@@ -1,32 +1,24 @@
 <div class="container">
  <div class="row">
-
-    <div class="col-md-8 offset-md-1">
-    <table class="table">
+    <div class="col-lg-3 offset-md-1">
+         <%= image_tag @item.image, :size => '200x180' %>
+    </div>
+    <div class="col-lg-6">
+        <table class="table">
         <tbody>
-            <tr>
-            <td><%= image_tag @item.image %></td>
-            <td>
-              <p><strong><%= @item.name %></strong></p>
-              <p><%= @item.introduction %></p>
-              <p><%= @item.price %></p>
-            </td>
-            </tr>
+            <tr><td><h4 class="my-3"><strong><%= @item.name %></strong></h4></td></tr>
+            <tr><td><p><%= @item.introduction %></p></td></tr>
+            <tr><td><p><strong>￥<%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</p></td></tr>
+            <tr><td>
+                <div class="form-group">
+                  <%= form_with model: @cart_items do |f| %>
+                  <%= f.select :amount, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
+                  <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+                  <% end %>
+                </div>
+            </td></tr>
         </tbody>
         </table>
 </div>
-</div>
-</div>
-<div class="container">
- <div class="row">
-  <div class="com-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <div class="form-group">
-            <%= form_with model: @cart_items do |f| %>
-     <%= f.select :amount, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
-
-     <%= f.submit 'カートに入れる', class:"btn btn-success" %>
-  <% end %>
-        </div>
-        </div>
 </div>
 </div>
