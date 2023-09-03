@@ -11,8 +11,8 @@
             <tr><td><p><strong>￥<%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</p></td></tr>
             <tr><td>
                 <div class="form-group">
-                  <%= form_with model: @cart_items do |f| %>
-                  <%= f.select :amount, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
+                  <%= form_with model: @cart_item do |f| %>
+                  <%= f.select :amount,  *[1..10], include_blank: "個数選択" %>
                   <%= f.submit 'カートに入れる', class:"btn btn-success" %>
                   <% end %>
                 </div>

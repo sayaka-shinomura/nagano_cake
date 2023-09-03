@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get "/cart_items" => "cart_items#index"
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    resources :items, only: [:index, :show]
   end
 
   scope module: :public do
@@ -33,11 +35,6 @@ Rails.application.routes.draw do
     get "/customers/check" => "customers#check"
     patch "/customers/withdraw" => "customers#withdraw"
   end
-
-  scope module: :public do
-    resources :items, only: [:index, :show]
-  end
-
 
   scope module: :admin do
     get "/admin" => "homes#top"
