@@ -30,8 +30,6 @@ class Public::CartItemsController < ApplicationController
     @item = Item.all
     @total_amount = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     redirect_to cart_items_path
-
-
   end
 
   def destroy
@@ -45,7 +43,7 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:item_id, :amount, :name, :image, :price)
+    params.require(:cart_item).permit(:item_id, :amount, :name, :image, :price, :customer_id)
   end
 
 end

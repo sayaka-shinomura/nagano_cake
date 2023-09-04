@@ -19,12 +19,12 @@
                     <td class="align-middle text-center"><%= image_tag cart_item.item.image, :size => '50x40' %></td>
                     <td class="align-middle text-center"><%= cart_item.item.name %></td>
                     <td class="align-middle text-center"><%= cart_item.item.add_tax_price %>円</td>
-                    <td id="select-form" class="align-middle">
-                        <%= form_with(model: cart_item, url: cart_item_path(cart_item), method: :patch, local: false, class: "text-center") do |form| %>
+                    <td id="select-form" class="align-middle text-center">
+                        <%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch do |form| %>
                         <%= form.hidden_field :customer_id, :value => current_customer.id %>
                         <%= form.hidden_field :item_id, :value => cart_item.item.id %>
-                        <%= form.select :quantity, *[1..10],{}, class: "form-select-sm" %>
-                        <%= form.submit "変更", class: "btn btn-success" %>
+                        <%= form.select :amount, *[1..10],{}, class: "form-select-sm" %>
+                        <%= form.submit "変更", class: "btn change_button btn-success" %>
                         <% end %>
                     </td>
                     <td class="align-middle subtotal-area text-center"><%= cart_item.subtotal %>円</td>
@@ -50,7 +50,7 @@
       </table>
     </div>
    </div>
-   <div class="row mt-5">
+   <div class="row mt-3">
     <div class="col-md-8 offset-md-1 text-center">
       <%= link_to '情報入力へ進む', orders_new_path, class: "btn btn-success" %>
     </div>
