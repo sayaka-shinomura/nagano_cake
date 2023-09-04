@@ -33,19 +33,27 @@
             <% end %>
         </tbody>
     </table>
-    <%= link_to "買い物を続ける", items_path %>
+    </div>
+  </div>
+  <div class="row row-content-middle mt-3">
+    <div class="col-md-6 offset-md-1">
+      <%= link_to '買い物を続ける', root_path, class: "btn btn-primary" %>
+    </div>
     <div class="col-md-2">
-      <table class="table table-hover table-inverse table-bordered", style="border-color: #3C2A21;">
+      <table class="table table-hover table-inverse table-bordered">
         <tbody>
           <tr align="center">
-            <th class="align-middle text-center">合計金額</th>
-            <td class="text-center total-area">
-              <%= @cart_items.all.sum(:subtotal) %>
-             </td>
+            <th style="align-middle text-center">合計金額</th>
+            <td class="text-center total-area"><%= @total_amount %></td>
           </tr>
         </tbody>
       </table>
-     </div>
+    </div>
+   </div>
+   <div class="row mt-5">
+    <div class="col-md-8 offset-md-1 text-center">
+      <%= link_to '情報入力へ進む', orders_new_path, class: "btn btn-success" %>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
