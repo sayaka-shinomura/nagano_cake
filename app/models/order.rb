@@ -8,9 +8,10 @@ class Order < ApplicationRecord
   has_many :items, through: :order_details
 
   has_one_attached :image
-
-  enum payment_method: { credit_card: 0, transfer: 1 }
+  
   #0がクレジットカード、1が銀行振り込み
+  enum payment_method: { credit_card: 0, transfer: 1 }
+  
 
 
 end
