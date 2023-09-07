@@ -10,7 +10,6 @@
     <table class="table table-hover table-inverse table-bordered custom-table">
         <thead>
             <tr align=center >
-                <th></th>
                 <th>商品名</th>
                 <th>単価(税込)</th>
                 <th>数量</th>
@@ -21,8 +20,10 @@
         <tbody>
             <% @cart_items.each do |cart_item| %>
                 <tr>
-                    <td class="align-middle text-center"><%= image_tag cart_item.item.image, :size => '50x40' %></td>
-                    <td class="align-middle text-center"><%= cart_item.item.name %></td>
+                    <td class="align-middle text-left">
+                      <%= image_tag cart_item.item.image, :size => '50x40' %>
+                      <%= cart_item.item.name %>
+                    </td>
                     <td class="align-middle text-center"><%= cart_item.item.add_tax_price %>円</td>
                     <td id="select-form" class="align-middle text-center">
                         <%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch do |form| %>

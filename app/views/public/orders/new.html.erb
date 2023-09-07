@@ -1,11 +1,11 @@
 <div class="container">
   <h4 class="my-3">注文情報入力</h4>
+  <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
   <div class="row mt-3">
-    <div class="col-md-10 offset-md-1">
-      <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
+    <div class="col-md-10">
       <h5 class="my-3"><strong>支払い方法</strong></h5>
       <p>
-        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.radio_button :payment_method, "credit_card", checked: true %>
         <%= f.label :payment_method_credit_card, "クレジットカード" %>
        <br>
         <%= f.radio_button :payment_method, "transfer" %>
@@ -17,11 +17,12 @@
          <%= current_customer.address %><br>
          <%= current_customer.full_name %>
       </p>
-      <%end%>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-md-8 offset-md-1 text-center">
-      <%= link_to '確認画面へ進む', orders_confirm_path, class: "btn btn-primary" %>
+      <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
     </div>
+  </div>
+    <% end %>
 </div>

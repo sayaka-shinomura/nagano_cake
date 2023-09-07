@@ -7,6 +7,9 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
     @order.customer_id = current_customer.id
+    @order.postage = 800
+    @total_payment = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+
   end
 
   def create
