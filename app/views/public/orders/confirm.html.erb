@@ -1,7 +1,7 @@
 <div class="container">
   <h4 class="my-3">注文情報確認</h4>
   <div class="row mt-3">
-    <div class="col-6">
+    <div class="col-8">
     <table class="table table-striped table-bordered table-hover table-sm">
       <thead>
         <tr align=left >
@@ -27,13 +27,15 @@
     </table>
     </div>
 
+
+    <div class="col-3">
     <%= form_with model: @order, url: orders_path, local: true do |f| %>
-    <div class="col-6">
     <table class="table table-striped table-bordered table-hover table-sm">
       <tbody>
         <tr>
           <td>送料</td>
           <td><%= @order.postage.to_s(:delimited) %></td>
+          <%= f.hidden_field :postage, :value => @order.postage %>
         </tr>
         <tr>
           <td>商品合計</td>
@@ -41,7 +43,8 @@
         </tr>
         <tr>
           <td>請求金額</td>
-          <td><%= (@total_payment + 800).to_s(:delimited) %></td>
+          <td><%= (@total_payment + @order.postage).to_s(:delimited) %></td>
+          <%= f.hidden_field :billing_amount, :value => @order.billing_amount %>
         </tr>
       </tbody>
     </table>
@@ -59,9 +62,12 @@
   <div class="form-group">
     <div class="row">
       <h5 class="my-3"><strong>お届け先：</strong></h5>
-      <p class="my-3">〒 <%= current_customer.postal_code %>
-                      <%= current_customer.address %><br>
-                      <%= current_customer.full_name %>
+      <p class="my-3">〒<%= @order.postal_code.to_s %>
+                        <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+                        <%= @order.address %>
+                        <%= f.hidden_field :address, :value => @order.address %><br>
+                        <%= @order.name %>
+                        <%= f.hidden_field :name, :value => @order.name %>
       </p>
     </div>
   </div>
