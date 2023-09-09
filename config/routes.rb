@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :admin do
-    get "/admin/orders/:id" => "orders#show"
+    get "/admin/orders/:id" => "orders#show", as: 'admin_order'
   end
 
   scope module: :admin do

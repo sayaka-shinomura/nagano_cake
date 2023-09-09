@@ -1,12 +1,11 @@
 <div class="container">
 <div class="row">
-  <div class="col">
+  <div class="col-12">
     <h4 class="my-3">商品一覧（全<%= @item.size %>件）</h4>
-
-    <table class="col-md-3">
+    <table class="col-12">
         <tbody>
-          <tr><% @items.each do |item| %>
-            <td>
+          <tr class="col-12"><% @items.each do |item| %>
+            <td class="col-3">
               <%= image_tag item.image, :size => '200x180' %>
               <br>
               <%= link_to item_path(item) do %>
@@ -14,8 +13,8 @@
               <% end %>
               <p>￥<%= item.price %></p>
             </td>
-            <% end %>
-            </tr>
+          <% end %>
+          </tr>
         </tbody>
     </table>
     <%= paginate @items %>
