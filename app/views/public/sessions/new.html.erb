@@ -1,34 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <div calss="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>ログイン</h2>
-
-      <p><strong>会員の方</strong>はこちらからログイン</p>
+    <div class="col-6 px-5 px-sm-0 mx-auto">
+      <h4 class="my-3">ログイン</h2>
+      <p class="my-3"><strong>会員の方</strong>はこちらからログイン</p>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :'メールアドレス' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="col-2"><%= f.label :'メールアドレス' %></td>
+            <td class="col-4"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td class="col-2"><%= f.label :'パスワード' %></td>
+            <td class="col-4"><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+          <tr>
+            <td class="col-2"></td>
+            <td class="col-4"><%= f.submit "ログイン", class:"btn btn-sm btn-primary" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-      <div class="field">
-        <%= f.label :'パスワード' %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "ログイン", class:"btn btn-sm btn-primary" %>
-      </div>
-      <% end %>
-
-      <div class="actions">
-       <p>会員登録がお済みでない方</p>
-       <%= link_to new_customer_registration_path do %>
-       <span>こちら</span><% end %><p>から<strong>新規登録</strong>を行ってください</p>
-      </div>
-
+    <p>会員登録がお済みではない方<p>
+    <p class="text-center"><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
    </div>
   </div>
 </div>
