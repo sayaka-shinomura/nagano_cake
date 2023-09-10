@@ -7,14 +7,13 @@
       会員でない方も商品の閲覧はできますが、<br>
       購入には会員登録が必要になります。
     </p>
+  </div>
+ </div>
 
 
-
-<div class="container">
- <div class="row">
-  <div class="col-lg-4 offset-md-1">
+  <div class="col-12 offset-md-1">
     <h3>新着商品</h3>
-    <table class="table">
+    <table class="m-3">
         <tbody>
           <tr><% @items_latest4.each do |item| %>
             <td>
@@ -33,10 +32,10 @@
     <% if @items_offset4.any? %>
     <details>
       <summary style="text-align:right">全ての商品を見る</summary>
-      <table class="table">
+      <table>
         <tbody>
-          <tr><% @items_offset4.each do |item| %>
-            <td>
+          <tr class="col-12"><% @items_offset4.each do |item| %>
+            <td class="col-4">
               <%= image_tag item.image, :size => '200x180' %>
               <br>
               <%= link_to item_path(item) do %>
