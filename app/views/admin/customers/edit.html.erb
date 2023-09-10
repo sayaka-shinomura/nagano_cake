@@ -22,25 +22,21 @@
         <tr>
           <td>郵便番号</td>
           <td><%= f.text_field :postal_code %></td>
-          <td></td>
         </tr>
 
         <tr>
           <td>住所</td>
-          <td><%= f.text_field :address %></td>
-          <td></td>
+          <td><%= f.text_field :address, :size=>"60" %></td>
         </tr>
 
         <tr>
           <td>電話番号</td>
           <td><%= f.text_field :telephone_number %></td>
-          <td></td>
         </tr>
 
         <tr>
           <td>メールアドレス</td>
           <td><%= f.text_field :email %></td>
-          <td></td>
         </tr>
 
         <tr>

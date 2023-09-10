@@ -1,12 +1,15 @@
 <div class="container">
-<div class="row">
-<div class="col-md-8 offset-md-1">
-    <h2>商品一覧</h2>
-    <div class="form-group">
-         <%= link_to "＋", admin_items_new_path, class:"btn btn-success" %>
-        </div>
-    <table class="table">
-      <thead>
+  <h4 class="my-3 ml-5">商品一覧</h4>
+  <div class="row col-8 my-3">
+    <div class="ml-5">
+      <%= link_to "＋", admin_items_new_path, class:"btn btn-warning rounded-circle" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <table class="table">
+        <thead>
          <tr>
           <th align="left">商品ID</th>
           <th align="left">商品名</th>
@@ -26,7 +29,7 @@
         </tbody>
     </table>
     <%= paginate @items %>
- </div>
-</div>
+    </div>
+  </div>
 </div>
 
