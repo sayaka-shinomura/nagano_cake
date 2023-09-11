@@ -1,19 +1,16 @@
 <div class="container">
  <div class="row">
-  <div class="com-sm-12 col-md-8 col-lg-10 px-5 px-sm-0 mx-auto">
+  <div class="col-md-9 mx-auto">
     <p class="my-3 text-center">
       ようこそ、ながのCAKEへ！<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
       会員でない方も商品の閲覧はできますが、<br>
       購入には会員登録が必要になります。
     </p>
-  </div>
- </div>
 
-
-  <div class="col-12 offset-md-1">
-    <h3>新着商品</h3>
-    <table class="m-3">
+    <div class="d-flex flex-wrap mx-auto justify-content-center">
+      <h3>新着商品</h3>
+      <table>
         <tbody>
           <tr><% @items_latest4.each do |item| %>
             <td>
@@ -28,31 +25,13 @@
             </tr>
         </tbody>
     </table>
+    </div>
 
-    <% if @items_offset4.any? %>
-    <details>
-      <summary style="text-align:right">全ての商品を見る</summary>
-      <table>
-        <tbody>
-          <tr class="col-12"><% @items_offset4.each do |item| %>
-            <td class="col-4">
-              <%= image_tag item.image, :size => '200x180' %>
-              <br>
-              <%= link_to item_path(item) do %>
-              <p><%= item.name %></p>
-              <% end %>
-              <p>￥<%= item.price %></p>
-            </td>
-            <% end %>
-            </tr>
-        </tbody>
-    </table>
-    </details>
-    <% end %>
- </div>
-</div>
-</div>
+    <div class="col-12 mt-2 text-right">
+      <%= link_to "全ての商品を見る>", items_path %>
+    </div>
 
+    </div>
   </div>
- </div>
 </div>
+
