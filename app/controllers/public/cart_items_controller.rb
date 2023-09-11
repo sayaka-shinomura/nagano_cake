@@ -1,4 +1,7 @@
 class Public::CartItemsController < ApplicationController
+
+  before_action :authenticate_customer!
+
   def index
     @cart_items = CartItem.all
     @items = Item.all
@@ -20,7 +23,7 @@ class Public::CartItemsController < ApplicationController
     #ログインcustomerのみ更新できるようにするため分岐の外に記述する
     @cart_item.customer_id = current_customer.id
     @cart_item.save
-    redirect_to cart_items_path
+    redirect_to cart_items_path, notice: "商品を追加しました"
   end
 
   def update
@@ -29,18 +32,18 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @item = Item.all
     @total_amount = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
-    redirect_to cart_items_path
+    redirect_to cart_items_path, notice: "商品の個数を変更しました"
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to cart_items_path
+    redirect_to cart_items_path, notice: "商品を削除しました"
   end
 
   def destroy_all
     current_customer.cart_items.destroy_all
-    redirect_to cart_items_path, notice: 'カートが空になりました。'
+    redirect_to cart_items_path, notice: 'カートが空になりました'
   end
 
   private
