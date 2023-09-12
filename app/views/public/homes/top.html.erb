@@ -9,22 +9,18 @@
     </p>
 
     <div class="d-flex flex-wrap mx-auto justify-content-center">
-      <h3>新着商品</h3>
-      <table>
-        <tbody>
-          <tr><% @items_latest4.each do |item| %>
-            <td>
-              <%= image_tag item.image, :size => '200x180' %>
-              <br>
-              <%= link_to item_path(item) do %>
-              <p><%= item.name %></p>
-              <% end %>
-              <p>￥<%= item.price %></p>
-            </td>
-            <% end %>
-            </tr>
-        </tbody>
-    </table>
+      <h3 class="my-3">新着商品</h3>
+      <div class="d-flex flex-wrap">
+      <% @items_latest4.each do |item| %>
+      <div class="mr-3 d-flex flex-column mb-4">
+        <%= link_to item_path(item.id) do %>
+        <%= image_tag item.image, :size => '180x150' %>
+        <p class="ml-1 text-dark"><%= item.name %></p>
+        <span class="ml-1 text-dark">¥<%= item.price.to_s(:delimited) %></span>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
     </div>
 
     <div class="col-12 mt-2 text-right">
