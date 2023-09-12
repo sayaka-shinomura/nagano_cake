@@ -3,7 +3,7 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @items = Item.all
     @cart_item = @items.all
     #合計金額の初期値は0円
